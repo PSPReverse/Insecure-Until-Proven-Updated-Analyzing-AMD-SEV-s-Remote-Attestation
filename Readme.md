@@ -81,15 +81,15 @@ To verify the signature of the `data` file the following steps must be performed
     ```
     The script will convert the `ASK`, `ARK` and `CEK` certificates into the `pem` format and extract their signatures as well as the raw certificates.
 1. Verify the certificate chain using `openssl`:
-    1. Verify the `ASK` signature:
+    * Verify the `ASK` signature:
     ```
     openssl dgst -sha256 -sigopt rsa_padding_mode:pss -signature ask.sig -verify ark.pem ask.raw
     ```
-    1. Verify the `CEK` signature:
+    * Verify the `CEK` signature:
     ```
     openssl dgst -sha256 -sigopt rsa_padding_mode:pss -signature cek.sig -verify ask.pem cek.raw
     ```
-    1. Verify the `data` signature:
+    * Verify the `data` signature:
     ```
     openssl dgst -sha256 -signature data.sig -verify cek.pem data
     ```
