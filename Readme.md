@@ -1,7 +1,7 @@
 ## Introduction
 This repository contains supplemental data to our paper:
 
-*Insecure Until Proven Updated: Analyzing AMD SEV's Remote Attestation protocol*.
+*Insecure Until Proven Updated: Analyzing AMD SEV's Remote Attestation*.
 
 The paper will be presented at the [*26th ACM Conference on Computer and Communications Security*](https://sigsac.org/ccs/CCS2019/) (CCS'19) in London.
 You can find a pre-print version of the paper [here](https://arxiv.org/abs/1908.11680).
@@ -14,7 +14,9 @@ Please refer to our [paper](https://arxiv.org/abs/1908.11680) for the details.
 
 This repository contains a signature, created with an extracted CEK, over the title of our paper. This allows to verify our claims without actually releasing the extracted CEK key. Additionally, the repository contains helper scripts to convert AMD provided keys into a format suitable for `openssl`.
 
-The repository contains the following files:
+We have published a proof-of-concept of our proposed *migration attack* [here](https://github.com/RobertBuhren/amd-sev-migration-attack)
+
+This repository contains the following files:
 
 Filename | Description
 -------- | -----------
@@ -72,7 +74,7 @@ To verify the signature of the `data` file the following steps must be performed
     * The file `keys_org/ask_ark_naples.cert` contains both the signed `ASK` and the `ARK`.
       It can also be obtained directly from [AMD](https://developer.amd.com/wp-content/resources/ask_ark_naples.cert).
     * The signed CEK can be found in: `keys_org/5E1...cert`. Alternatively, it can be obtained from the [AMD CEK certificate webpage](https://kdsintf.amd.com/cek/). The CPU ID corresponding to our extracted CEK is:
-    ```
+        ```
     5E1FDB617787B6D516F5CC5A5BB48FAE868DD57C71EC81F3FD59AD7C84A761C7453289287481DEA46C010E25304DA3FDFCE63DF87C5AE735537975EEE069CB14
     ```
 1. Convert the AMD certificates into the `pem` format.
